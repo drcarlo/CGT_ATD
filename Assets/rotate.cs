@@ -6,6 +6,7 @@ public class rotate : MonoBehaviour
 {
     private Quaternion startingRotation;
     public float speed = 10;
+    public static bool rotating = false;
 
     void Start(){
         //save the starting rotation
@@ -22,8 +23,12 @@ public class rotate : MonoBehaviour
         //go to 90 degrees with right arrow
         if( Input.GetKeyDown( KeyCode.E ) ){
             StopAllCoroutines();
-            StartCoroutine(Rotate(45));
+            StartCoroutine(Rotate(75));
         }
+
+        if (this.transform.rotation != startingRotation) {
+            rotating = true;
+        } else {rotating = false;}
     }
 
     IEnumerator Rotate(float rotationAmount){

@@ -17,7 +17,7 @@ public class collison : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision coll) {
-        if (coll.gameObject.tag == "voxel") {
+        if (coll.gameObject.tag == "voxel" && rotate.rotating == true) {
             Destroy(coll.gameObject);
         }
     }
